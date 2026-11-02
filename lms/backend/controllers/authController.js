@@ -80,6 +80,7 @@ exports.login = async (req, res) => {
     }
     return res.json({ ...publicUser(user), token: genToken(user._id) });
   } catch (err) {
+    console.error("LOGIN ERROR:", err);
     return res.status(500).json({ message: "Login failed. Please try again." });
   }
 };
